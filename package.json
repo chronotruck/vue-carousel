@@ -1,6 +1,6 @@
 {
   "name": "vue-ctk-carousel",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A flexible, responsive, touch-friendly carousel for Vue.js",
   "main": "dist/vue-ctk-carousel.min.js",
   "scripts": {
