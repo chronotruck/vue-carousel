@@ -5,7 +5,7 @@ const base = require('./webpack.base.conf')
 
 var config = Object.assign({}, base)
 
-config.output.filename = 'vue-carousel.min.js'
+config.output.filename = 'vue-ctk-carousel.min.js'
 
 config.plugins = (config.plugins || []).concat([
   new webpack.optimize.UglifyJsPlugin({
