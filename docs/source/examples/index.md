@@ -17,13 +17,13 @@ Configured breakpoints: 2 slides on mobile (<= 480px), 3 slides on tablet (<= 76
 
 ## Scroll per page
 
-Instead of scrolling on a per item basis, the carousel will scroll the configured [perPage](/vue-carousel/api#perPage) with each movement.
+Instead of scrolling on a per item basis, the carousel will scroll the configured [perPage](/vue-ctk-carousel/api#perPage) with each movement.
 
 <script async src="//jsfiddle.net/toddlawton/6ckc1pqv/embed/result,js/"></script>
 
 ## Scroll per page (custom)
 
-Instead of scrolling on a per item basis, the carousel will scroll the configured by [perPageCustom](/vue-carousel/api#perPageCustom) with each movement.
+Instead of scrolling on a per item basis, the carousel will scroll the configured by [perPageCustom](/vue-ctk-carousel/api#perPageCustom) with each movement.
 
 <script async src="//jsfiddle.net/quinnssense/gjr7wbph/1/embed/"></script></script>
 

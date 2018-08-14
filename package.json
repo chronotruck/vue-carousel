@@ -1,25 +1,25 @@
 {
-  "name": "vue-carousel",
-  "version": "0.9.0",
+  "name": "vue-ctk-carousel",
+  "version": "0.1.0",
   "description": "A flexible, responsive, touch-friendly carousel for Vue.js",
-  "main": "dist/vue-carousel.min.js",
+  "main": "dist/vue-ctk-carousel.min.js",
   "scripts": {
     "build": "webpack --config config/webpack.min.conf.js && npm run updateDocAssets",
     "coveralls": "cat coverage/client/lcov.info | ./node_modules/.bin/coveralls",
     "dev": "vue-play start --standalone",
     "dev:build": "vue-play build",
-    "docs:build": "npm run build && rm -rf ./docs/public && mkdir ./docs/public/ && cd ./docs/public/ && git init && git remote add origin git@github.com:SSENSE/vue-carousel.git && git fetch && git checkout -f gh-pages && cd .. && npm install && ./node_modules/.bin/hexo clean && ./node_modules/.bin/hexo generate",
+    "docs:build": "npm run build && rm -rf ./docs/public && mkdir ./docs/public/ && cd ./docs/public/ && git init && git remote add origin git@github.com:chronotruck/vue-ctk-carousel.git && git fetch && git checkout -f gh-pages && cd .. && npm install && ./node_modules/.bin/hexo clean && ./node_modules/.bin/hexo generate",
     "lint": "prettier-eslint --write \"src/**/?(*.js|*.vue)\" || exit 1",
     "precommit": "npm run lint && npm run test",
     "test": "npm run test:client",
     "test:client": "jest --config tests/client.jest.json --forceExit",
     "test:client:coverage": "jest --config tests/client.jest.json --coverage --forceExit",
     "test-coverage": "npm run test:client:coverage",
-    "updateDocAssets": "cp ./dist/vue-carousel.min.js ./docs/themes/vue/source/js/"
+    "updateDocAssets": "cp ./dist/vue-ctk-carousel.min.js ./docs/themes/vue/source/js/"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/SSENSE/vue-carousel.git"
+    "url": "git+ssh://git@github.com/chronotruck/vue-ctk-carousel.git"
   },
   "keywords": [
     "Vue",
@@ -27,12 +27,18 @@
     "slider",
     "responsive"
   ],
-  "author": "todd.beauchamp@ssense.com",
+  "author": "william.da.silva@chronotruck.com",
+  "contributors": [
+    {
+      "name": "Todd Beauchamp",
+      "email": "todd.beauchamp@ssense.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ssense/vue-carousel/issues"
+    "url": "https://github.com/chronotruck/vue-ctk-carousel/issues"
   },
-  "homepage": "https://github.com/ssense/vue-carousel#readme",
+  "homepage": "https://github.com/chronotruck/vue-ctk-carousel#readme",
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-eslint": "^7.1.1",
