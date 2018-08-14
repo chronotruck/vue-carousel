@@ -376,21 +376,28 @@ export default {
       return width / perPage;
     },
     transitionStyle() {
-      const speed = this.speed / 1000
-      return `${speed}s ${this.easing} transform, padding-left ${speed}s ${this.easing}`;
+      const speed = this.speed / 1000;
+
+      const transitions = [
+        `${speed}s ${this.easing} transform`,
+        `padding-left ${speed}s ${this.easing}`
+      ];
+
+      return transitions.join(",");
     },
     padding() {
       const padding = this.spacePadding;
-      const factor = this.spacePaddingFactor
-      
+      const factor = this.spacePaddingFactor;
+
       /**
        * If we're in the first slide and the padding factor is configured to align himself
        * to the wrapper boundaries, then we remove the padding to align the first item
        * to the left boundaries too.
-       * 
+       *
        * Otherwise, use the space padding.
        */
-      return (this.currentPage === 0 && factor === 1) ? 0 : (padding > 0 ? padding : false);
+      const defaultPadding = padding > 0 ? padding : false;
+      return this.currentPage === 0 && factor === 1 ? 0 : defaultPadding;
     }
   },
   methods: {
