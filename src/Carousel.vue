@@ -254,6 +254,13 @@ export default {
     spacePadding: {
       type: Number,
       default: 0
+    },
+    /**
+     * The price factor to handle how the last slide is visible on the screen.
+     */
+    spacePaddingFactor: {
+      type: Number,
+      default: 0
     }
   },
 
@@ -346,7 +353,7 @@ export default {
     maxOffset() {
       return (
         this.slideWidth * (this.slideCount - this.currentPerPage) -
-        this.spacePadding * 2
+        this.spacePadding * this.spacePaddingFactor
       );
     },
     /**
@@ -369,11 +376,28 @@ export default {
       return width / perPage;
     },
     transitionStyle() {
-      return `${this.speed / 1000}s ${this.easing} transform`;
+      const speed = this.speed / 1000;
+
+      const transitions = [
+        `${speed}s ${this.easing} transform`,
+        `padding-left ${speed}s ${this.easing}`
+      ];
+
+      return transitions.join(",");
     },
     padding() {
       const padding = this.spacePadding;
-      return padding > 0 ? padding : false;
+      const factor = this.spacePaddingFactor;
+
+      /**
+       * If we're in the first slide and the padding factor is configured to align himself
+       * to the wrapper boundaries, then we remove the padding to align the first item
+       * to the left boundaries too.
+       *
+       * Otherwise, use the space padding.
+       */
+      const defaultPadding = padding > 0 ? padding : false;
+      return this.currentPage === 0 && factor === 1 ? 0 : defaultPadding;
     }
   },
   methods: {

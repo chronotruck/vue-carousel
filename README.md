@@ -1,16 +1,15 @@
 # Vue Carousel
 
-[![Build Status](https://travis-ci.org/SSENSE/vue-carousel.svg?branch=master)](https://travis-ci.org/SSENSE/vue-carousel)
-[![Coverage Status](https://coveralls.io/repos/github/SSENSE/vue-carousel/badge.svg?branch=master)](https://coveralls.io/github/SSENSE/vue-carousel?branch=master)
-[![Latest Stable Version](https://img.shields.io/npm/v/vue-carousel.svg)](https://www.npmjs.com/package/vue-carousel)
+[![Latest Stable Version](https://img.shields.io/npm/v/vue-ctk-carousel.svg)](https://www.npmjs.com/package/vue-ctk-carousel)
 
-**WARNING: vue-carousel is at pre-alpha stage of development and may undergo significant changes.**
+**This project is a hard fork from the [vue-carousel](https://github.com/SSENSE/vue-carousel) component by SSENSE. We decided to fork it for our own usage since the updates where not made very often.**
 
-**Feel free to submit issues and feature requests [here](https://github.com/SSENSE/vue-carousel/issues)**.
+**Feel free to submit issues and feature requests [here](https://github.com/chronotruck/vue-ctk-carousel/issues)**.
 
-**[Full documentation and examples](https://ssense.github.io/vue-carousel)**
+[Full documentation and examples](https://ssense.github.io/vue-ctk-carousel)
 
 ## Table of Contents
+
 - [Installation](#installation)
 - [Usage](#usage)
 - [Development](#development)
@@ -19,13 +18,13 @@
 ## Installation
 
 ``` bash
-npm install vue-carousel
+npm install vue-ctk-carousel
 ```
 
 or if you prefer yarn
 
 ``` bash
-yarn add vue-carousel
+yarn add vue-ctk-carousel
 ```
 
 ## Usage
@@ -36,10 +35,11 @@ You may install Vue Carousel globally:
 
 ``` js
 import Vue from 'vue';
-import VueCarousel from 'vue-carousel';
+import VueCarousel from 'vue-ctk-carousel';
 
 Vue.use(VueCarousel);
 ```
+
 This will make **&lt;carousel&gt;** and **&lt;slide&gt;** available to all components within your Vue app.
 
 ### Local
@@ -47,7 +47,7 @@ This will make **&lt;carousel&gt;** and **&lt;slide&gt;** available to all compo
 Include the carousel directly into your component using import:
 
 ``` js
-import { Carousel, Slide } from 'vue-carousel';
+import { Carousel, Slide } from 'vue-ctk-carousel';
 
 export default {
   ...
@@ -60,6 +60,7 @@ export default {
 ```
 
 ### Configuration
+
 | Property                  | Type    | Default | Description                                                                                                                                                                                                                                                                           |
 |:--------------------------|:--------|:--------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | easing                    | String  | ease    | Slide transition easing. Any valid CSS transition easing accepted.                                                                                                                                                                                                                    |
@@ -82,8 +83,10 @@ export default {
 | loop                      | Boolean | false   | Flag to make the carousel loop around when it reaches the end.                                                                                                                                                                                                                        |
 | navigateTo                | Number  | 0       | Listen for an external navigation request using this prop.                                                                                                                                                                                                                            |
 | spacePadding              | Number  | 0       | Stage padding option adds left and right padding style (in pixels) onto VueCarousel-inner.                                                                                                                                                                                            |
+| spacePaddingFactor        | Number  | 0       | Add a padding factor to manage how the last item is rendered on the carousel. Common values are: (`0`: the last item is aligned to the center, like the first item; `1`: the last item is aligned to the right of the carousel, `2`: the last item is overflowed by it's container (previous behaviour))                                                                                                                                                                                            |
 
 ### Events
+
 | Event                     | Type    | Emitter  | Description                                                                                                                                                                                                                                                                           |
 |:--------------------------|:--------|:---------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | slideClick                | Object  | Slide    | "slideClick" event throws the *dataset* object of the selected element                                                                                                                                                                                                          |
@@ -105,7 +108,7 @@ Once the **Carousel** and **Slide** components are installed globally or importe
 
 To listen for the 'slideClick' event you can do the following:
 
-``` html
+```html
   <carousel>
     <slide
         data-index="0"
@@ -116,26 +119,28 @@ To listen for the 'slideClick' event you can do the following:
     ...
   </carousel>
 ```
-```
+
+```js
   handleSlideClick (dataset) => {
     console.log(dataset.index, dataset.name)
   }
 ```
+
 ## Development
 
-A sandboxed dev environment is provided by [vue-play](https://github.com/vue-play/vue-play). Changes made to the component files will appear in real time in the sandbox. 
+A sandboxed dev environment is provided by [vue-play](https://github.com/vue-play/vue-play). Changes made to the component files will appear in real time in the sandbox.
 
 To begin development, run:
 
 ``` bash
-npm install 
+npm install
 npm run dev
 ```
 
 or, if you prefer yarn
 
 ``` bash
-yarn install 
+yarn install
 yarn dev
 ```
 

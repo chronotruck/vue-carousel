@@ -6,7 +6,7 @@ const npmCfg = require('../package.json');
 const projectRoot = path.resolve(__dirname, '../');
 
 var banner = [
-  'vue-carousel v' + npmCfg.version,
+  'vue-ctk-carousel v' + npmCfg.version,
   '(c) ' + (new Date().getFullYear()) + ' ' + npmCfg.author,
   npmCfg.homepage
 ].join('\n')
@@ -15,7 +15,7 @@ module.exports = {
   entry: './src/',
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: 'vue-carousel.js',
+    filename: 'vue-ctk-carousel.js',
     library: 'VueCarousel',
     libraryTarget: 'umd'
   },
