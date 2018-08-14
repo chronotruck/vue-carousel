@@ -254,6 +254,13 @@ export default {
     spacePadding: {
       type: Number,
       default: 0
+    },
+    /**
+     * The price factor to handle how the last slide is visible on the screen.
+     */
+    spacePaddingFactor: {
+      type: Number,
+      default: 0
     }
   },
 
@@ -346,7 +353,7 @@ export default {
     maxOffset() {
       return (
         this.slideWidth * (this.slideCount - this.currentPerPage) -
-        this.spacePadding * 2
+        this.spacePadding * this.spacePaddingFactor
       );
     },
     /**
