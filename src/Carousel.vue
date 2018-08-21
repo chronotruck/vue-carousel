@@ -267,6 +267,14 @@ export default {
     spacePaddingFactor: {
       type: Number,
       default: 0
+    },
+    /**
+     * Initial space padding added to the left side, if the padding factor align the slides
+     * to the left.
+     */
+    initialSpacePadding: {
+      type: Number,
+      default: 0
     }
   },
 
@@ -406,7 +414,8 @@ export default {
        * Otherwise, use the space padding.
        */
       const defaultPadding = padding > 0 ? padding : false;
-      return this.currentPage === 0 && factor === 1 ? 0 : defaultPadding;
+      return this.currentPage === 0 && factor === 1 ?
+        Math.min(this.initialSpacePadding, this.spacePadding) : defaultPadding;
     }
   },
   methods: {
