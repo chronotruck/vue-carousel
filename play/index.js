@@ -295,6 +295,60 @@ play("Carousel", module)
       )
     }
   })
+  .add("Multiple per page with a spacePadding and initialSpacePadding", {
+    components: { Carousel, Slide },
+    render: h => {
+      return createContainer(
+        h, containerWidth, [h(Carousel, {
+          props: {
+            perPage: 2,
+            spacePadding: 50,
+            spacePaddingFactor: 1,
+            initialSpacePadding: 32
+          }
+        }, [new Array(8).fill(0).map((item, index) => {
+          return h(Slide, {}, [h("div", {
+            style: {
+              width: "100%",
+              height: "400px",
+              lineHeight: "400px",
+              color: "#fff",
+              textAlign: "center",
+              fontSize: "30px",
+              backgroundColor: (index % 2 === 0) ? "#42b983" : "#ff3c3c"
+            }
+          }, [index])])
+        })])]
+      )
+    }
+  })
+  .add("Multiple per page fixed", {
+    components: { Carousel, Slide },
+    render: h => {
+      return createContainer(
+        h, containerWidth, [h(Carousel, {
+          props: {
+            perPage: 3,
+            perPageFixed: true,
+            spacePadding: 50,
+            spacePaddingFactor: 1
+          }
+        }, [new Array(2).fill(0).map((item, index) => {
+          return h(Slide, {}, [h("div", {
+            style: {
+              width: "100%",
+              height: "400px",
+              lineHeight: "400px",
+              color: "#fff",
+              textAlign: "center",
+              fontSize: "30px",
+              backgroundColor: (index % 2 === 0) ? "#42b983" : "#ff3c3c"
+            }
+          }, [index])])
+        })])]
+      )
+    }
+  })
   .add("Emit selected element dataset", {
     template:
       `<div style="width: 100%; display: flex; justify-content: center; margin-top: 40px;">

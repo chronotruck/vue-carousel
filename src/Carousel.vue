@@ -202,6 +202,13 @@ export default {
       default: 2
     },
     /**
+     * Specify if the slides should have a fixed width according to the page number
+     */
+    perPageFixed: {
+      type: Boolean,
+      default: false
+    },
+    /**
      * Configure the number of visible slides with a particular browser width.
      * This will be an array of arrays, ex. [[320, 2], [1199, 4]]
      * Formatted as [x, y] where x=browser width, and y=number of slides displayed.
@@ -258,6 +265,14 @@ export default {
      * The price factor to handle how the last slide is visible on the screen.
      */
     spacePaddingFactor: {
+      type: Number,
+      default: 0
+    },
+    /**
+     * Initial space padding added to the left side, if the padding factor align the slides
+     * to the left.
+     */
+    initialSpacePadding: {
       type: Number,
       default: 0
     }
@@ -370,7 +385,10 @@ export default {
      */
     slideWidth() {
       const width = this.carouselWidth - this.spacePadding * 2;
-      const perPage = Math.min(this.currentPerPage, this.slideCount);
+      let perPage = Math.min(this.currentPerPage, this.slideCount);
+      if (this.perPageFixed) {
+        perPage = this.currentPerPage;
+      }
 
       return width / perPage;
     },
@@ -396,7 +414,9 @@ export default {
        * Otherwise, use the space padding.
        */
       const defaultPadding = padding > 0 ? padding : false;
-      return this.currentPage === 0 && factor === 1 ? 0 : defaultPadding;
+      return this.currentPage === 0 && factor === 1
+        ? Math.min(this.initialSpacePadding, this.spacePadding)
+        : defaultPadding;
     }
   },
   methods: {
