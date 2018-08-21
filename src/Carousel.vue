@@ -385,9 +385,9 @@ export default {
      */
     slideWidth() {
       const width = this.carouselWidth - this.spacePadding * 2;
-      let perPage = Math.min(this.currentPerPage, this.slideCount)
+      let perPage = Math.min(this.currentPerPage, this.slideCount);
       if (this.perPageFixed) {
-        perPage = this.currentPerPage
+        perPage = this.currentPerPage;
       }
 
       return width / perPage;
@@ -414,8 +414,9 @@ export default {
        * Otherwise, use the space padding.
        */
       const defaultPadding = padding > 0 ? padding : false;
-      return this.currentPage === 0 && factor === 1 ?
-        Math.min(this.initialSpacePadding, this.spacePadding) : defaultPadding;
+      return this.currentPage === 0 && factor === 1
+        ? Math.min(this.initialSpacePadding, this.spacePadding)
+        : defaultPadding;
     }
   },
   methods: {
