@@ -1,3 +1,6 @@
 {
-  "extends": ["plugin:vue/base", "plugin:prettier/recommended"]
+  "extends": [
+    "standard",
+    "plugin:vue/recommended"
+  ]
 }
