@@ -62,6 +62,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
     "@storybook/addon-notes": "^4.0.4",
+    "@storybook/addon-options": "^4.0.4",
     "@storybook/vue": "^4.0.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",

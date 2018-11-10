@@ -1,7 +1,11 @@
 import { configure, addDecorator } from '@storybook/vue';
 import { withNotes } from '@storybook/addon-notes';
+import { withOptions } from '@storybook/addon-options';
  
 addDecorator(withNotes);
+addDecorator(withOptions({
+  name: 'vue-ctk-carousel'
+}))
 
 import Vue from 'vue';
 // import Vuex from 'vuex'; // Vue plugins
