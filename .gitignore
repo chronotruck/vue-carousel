@@ -6,3 +6,4 @@ coverage/
 /.idea
 .env
 .yarn-error.log
+.cache
