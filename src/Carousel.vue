@@ -97,6 +97,9 @@ export default {
     };
   },
   props: {
+    infiniteLoop: {
+      type: Boolean
+    },
     /**
      * Support for v-model functionality
      */
@@ -476,6 +479,17 @@ export default {
           for (let i = 0; i < carouselInnerElements.length; i++) {
             this.mutationObserver.observe(carouselInnerElements[i], config);
           }
+
+          console.log(
+            "slides",
+            document.querySelectorAll(".VueCarousel-slide")
+          );
+          // add last slide as first item
+          const slides = document.querySelectorAll(".VueCarousel-slide");
+          const lastSlide = slides[slides.length - 1];
+          const clone = lastSlide.cloneNode(true);
+          console.log("last", carouselInnerElements);
+          carouselInnerElements[0].prepend(clone);
         }
       }
     },
